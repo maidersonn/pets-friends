@@ -14,6 +14,30 @@ app.use("/", router);
 router.get("/", (req, res) => {
   res.render("HomePage.html");
 });
+router.get("/cats", (req, res) => {
+  res.render("Cats.html");
+});
+
+router.get("/dogs", (req, res) => {
+  res.render("Dogs.html");
+});
+
+router.get("/adoptions", (req, res) => {
+  res.render("Adoptions.html");
+});
+
+router.get("/login", (req, res) => {
+  res.render("Login.html");
+});
+
+router.get("/become_partner", (req, res) => {
+  res.render("Partner.html");
+});
+
+router.get("/management", (req, res) => {
+  res.render("Management.html");
+});
+
 app.listen(port, () => {
   console.log(`app listening at http://localhost:${port}`);
 });
