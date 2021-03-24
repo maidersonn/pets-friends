@@ -8,7 +8,7 @@ const pool = new Pool({
 });
 
 const getCats = () => {
-  const showCats = new Promise((resolve, reject) => {
+  return new Promise((resolve, reject) => {
     pool.query(
       "SELECT Name, Age FROM animals_to_adopt WHERE Type='cat'",
       (error, results) => {
@@ -20,7 +20,21 @@ const getCats = () => {
       }
     );
   });
-  return showCats;
 };
 
-module.exports = getCats;
+const getDogs = () => {
+  return new Promise((resolve, reject) => {
+    pool.query(
+      "SELECT Name, Age FROM animals_to_adopt WHERE Type='dog'",
+      (error, results) => {
+        if (error) {
+          reject(error);
+        } else {
+          resolve(results.rows);
+        }
+      }
+    );
+  });
+};
+
+module.exports = { getCats, getDogs };

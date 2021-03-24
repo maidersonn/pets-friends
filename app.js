@@ -5,6 +5,7 @@ const port = 3300;
 const router = express.Router();
 const nunjucks = require("nunjucks");
 const getCatsList = require("./controllers/CatsController");
+const getDogsList = require("./controllers/DogsController");
 
 nunjucks.configure("view", {
   autoescape: true,
@@ -19,9 +20,7 @@ router.get("/", (req, res) => {
 
 router.get("/cats", getCatsList);
 
-router.get("/dogs", (req, res) => {
-  res.render("Dogs.html");
-});
+router.get("/dogs", getDogsList);
 
 router.get("/adoptions", (req, res) => {
   res.render("Adoptions.html");

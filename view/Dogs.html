@@ -4,4 +4,10 @@
 <h1>Dogs to Adopt</h1>
 {% endblock pagename %} {% block phrase %}
 <p>Here you will see a list of dogs to adopt</p>
-{% endblock phrase %}
+{% if error %} {{error}} {% else %}
+<ul>
+  {% for dog in dogs %}
+  <li>{{dog.name}}. Age : {{dog.age}}</li>
+  {% else %} There is not dogs to adopt right now. {% endfor %}
+</ul>
+{% endif %}{% endblock phrase %}

@@ -1,4 +1,4 @@
-const getCats = require("../queries");
+const { getCats } = require("../queries");
 
 const getCatsList = (req, res) => {
   getCats()
