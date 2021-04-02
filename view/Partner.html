@@ -1,7 +1,16 @@
 {% extends "Layout.html" %} {% block title %}
-<header>Adoption Center</header>
+<title>Adoption Center</title>
 {% endblock title %} {% block pagename %}
 <h1>Become Partner !</h1>
-{% endblock pagename %} {% block phrase %}
-<p>Form to become a partner</p>
-{% endblock phrase %}
+{% endblock pagename %} {% block content %}
+<form method= "post" action="/become_partner">
+    <label for="name">Name:</label><br>
+    <input type="text" id="name" name="name"><br>
+    <label for="lname">Last name:</laber><br>
+    <input type="text" id="lname" name="lname"><br>
+    <label for="mail">Mail:</label><br>
+    <input type="text" id="mail" name="mail"><br>
+    <input type="submit" value="Send">
+
+</form>
+{% endblock content %}

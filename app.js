@@ -1,16 +1,21 @@
-const { response } = require("express");
+const bodyParser = require("body-parser");
 const express = require("express");
+require("dotenv").config();
 const app = express();
 const port = 3300;
 const router = express.Router();
 const nunjucks = require("nunjucks");
 const getCatsList = require("./controllers/CatsController");
 const getDogsList = require("./controllers/DogsController");
+const { createPartner } = require("./queries");
 
 nunjucks.configure("view", {
   autoescape: true,
   express: app,
 });
+
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
 
 app.use("/", router);
 
@@ -33,6 +38,8 @@ router.get("/login", (req, res) => {
 router.get("/become_partner", (req, res) => {
   res.render("Partner.html");
 });
+
+router.post("/become_partner", createPartner);
 
 router.get("/management", (req, res) => {
   res.render("Management.html");
